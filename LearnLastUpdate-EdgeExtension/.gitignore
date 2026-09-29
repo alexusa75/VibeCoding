@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+tests/output/
+# Built by tools/package.py and attached to the GitHub release instead.
+store/*.zip

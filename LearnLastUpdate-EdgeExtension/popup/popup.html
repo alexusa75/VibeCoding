@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Learn Last Update</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="sheet" id="sheet" data-state="loading" aria-live="polite">
+    <header class="mast">
+      <span class="brand">Last Update</span>
+      <span class="leader" aria-hidden="true"></span>
+      <span class="site">Microsoft Learn</span>
+    </header>
+
+    <section class="state state-loading">
+      <p class="note">Reading the article's metadata…</p>
+    </section>
+
+    <section class="state state-empty">
+      <h1 class="empty-title">Not a Learn article</h1>
+      <p class="note" id="emptyText">Open an article on learn.microsoft.com and click the icon again to see when it was last updated and who wrote it.</p>
+      <a class="btn" id="openLearn" href="https://learn.microsoft.com/" target="_blank" rel="noopener">Open Microsoft Learn</a>
+    </section>
+
+    <section class="state state-ready">
+      <h1 class="title" id="title"></h1>
+
+      <div class="hero">
+        <div class="hero-text">
+          <span class="lbl">Last updated</span>
+          <time class="big-date" id="bigDate"></time>
+          <span class="sub" id="relDate"></span>
+        </div>
+        <span class="stamp" id="stamp"></span>
+      </div>
+
+      <p class="rev" id="revNote" hidden></p>
+
+      <div class="block writer">
+        <span class="lbl">Technical writer</span>
+        <div class="person">
+          <span class="av-wrap" id="avWrap"></span>
+          <div class="person-text">
+            <a class="person-name" id="writerName" target="_blank" rel="noopener"></a>
+            <div class="handles" id="handles"></div>
+          </div>
+        </div>
+        <div class="chips" id="writerActions"></div>
+        <dl class="people" id="people"></dl>
+      </div>
+
+      <div class="block">
+        <span class="lbl">Ledger</span>
+        <dl class="ledger" id="ledger"></dl>
+      </div>
+
+      <nav class="links" id="links" aria-label="Source links"></nav>
+    </section>
+
+    <footer class="foot">
+      <label class="toggle"><input type="checkbox" id="optCard" /> <span>Card on page</span></label>
+      <label class="toggle"><input type="checkbox" id="optGh" /> <span>GitHub lookups</span></label>
+      <button type="button" class="copy" id="copyBtn" disabled>Copy</button>
+    </footer>
+  </main>
+  <script src="../src/core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

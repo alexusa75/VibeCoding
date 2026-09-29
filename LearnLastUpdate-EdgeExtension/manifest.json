@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Learn Last Update",
+  "short_name": "Last Update",
+  "version": "1.0.0",
+  "description": "Shows when the Microsoft Learn article you're reading was last updated and who the technical writer is.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Learn Last Update",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "permissions": ["storage", "scripting"],
+  "host_permissions": [
+    "https://learn.microsoft.com/*",
+    "https://review.learn.microsoft.com/*",
+    "https://api.github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://learn.microsoft.com/*", "https://review.learn.microsoft.com/*"],
+      "js": ["src/core.js", "src/card-styles.js", "src/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
